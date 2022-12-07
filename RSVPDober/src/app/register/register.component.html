@@ -1,0 +1,39 @@
+<h2>Add Guest</h2>
+<form>
+  <label>
+    Name:
+    <input type="text" name="GuestName" required [(ngModel)]="currentItem.Name">
+  </label>
+</form>
+<form>
+  <label>
+    Attent To Party:
+    <input type="checkbox" name="AttentToParty" [(ngModel)]="currentItem.AttentToParty" >
+  </label>
+</form>
+
+<form [hidden]="!currentItem.AttentToParty">
+  <label>
+    Comment:
+    <input  type="text" name="Comment" [(ngModel)]="currentItem.Comment">
+  </label>
+</form>
+
+<form [hidden]="!currentItem.AttentToParty">
+  <label>
+    +1 Guest:
+    <input  type="checkbox" name="AdditionalGuest" [(ngModel)]="currentItem.AdditionalGuest" >
+  </label>
+</form>
+
+<form [hidden]="!currentItem.AttentToParty || !currentItem.AdditionalGuest">
+  <label>
+    +1 Name:
+    <input  type="text" name="AdditionalGuestName"required [(ngModel)]="currentItem.AdditionalGuestName">
+  </label>
+</form>
+
+<form>
+  <button (click)=" save()" >save</button>
+
+</form>

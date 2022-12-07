@@ -1,0 +1,36 @@
+<h2>Guests</h2>
+<table>
+  <tr>
+    <th>Name</th>
+  <th>Attent</th>
+  <th>Comment</th>
+  <th>+1</th>
+  <th>+1 Name</th>
+  </tr>
+  <tr *ngFor="let guest of dataFromServer?.records">
+  <td>{{guest.fields.Name}}</td>
+  <td><input type="checkbox"  [checked]="guest.fields.AttentToParty" disabled></td>
+  <td>{{guest.fields.Comment}}</td>
+  <td><input type="checkbox" [checked]="guest.fields.AdditionalGuest" disabled></td>
+  <td>{{guest.fields.AdditionalGuestName}}</td>
+
+
+</tr>
+
+</table>
+
+<table>
+  <tr>
+    <th> Guests</th>
+    <th>Additional Guests</th>
+    <th>Sum of Guests</th>
+
+  </tr>
+  <tr>
+    <td><input id="count-txt" type="text" [value]="countGuests" disabled></td>
+    <td><input id="countAdd" type="text" [value]="countAdditionalGuests" disabled></td>
+    <td><input id="countAll" type="text" [value]="totalAmountOfGuests()" disabled></td>
+
+  </tr>
+</table>
+
